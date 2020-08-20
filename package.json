@@ -1,0 +1,47 @@
+{
+    "name": "@adamdehaven/vue-custom-tooltip",
+    "version": "1.0.0",
+    "description": "A reusable tooltip component for Vue (and VuePress) projects.",
+    "keywords": [
+        "Vue",
+        "tooltip",
+        "component",
+        "VuePress"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/adamdehaven/vue-custom-tooltip.git"
+    },
+    "author": "Adam DeHaven <adam@dehaven.org> (https://www.adamdehaven.com/)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/adamdehaven/vue-custom-tooltip/issues"
+    },
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "npm run build:lib && npm run build:es && npm run delete:files",
+        "build:lib": "vue-cli-service build --target lib --name vue-custom-tooltip ./src/index.js --mode production",
+        "build:es": "rollup --config rollup.config.js --format es --file dist/vue-custom-tooltip.esm.js",
+        "delete:files": "del-cli ./dist/demo.html"
+    },
+    "main": "dist/vue-custom-tooltip.umd.js",
+    "files": [
+        "dist/*"
+    ],
+    "dependencies": {
+        "core-js": "^3.6.5",
+        "vue": "^2.6.11"
+    },
+    "devDependencies": {
+        "@rollup/plugin-buble": "^0.21.3",
+        "@rollup/plugin-commonjs": "^15.0.0",
+        "@vue/cli-plugin-babel": "~4.5.0",
+        "@vue/cli-service": "~4.5.0",
+        "del-cli": "^3.0.1",
+        "rollup": "^2.26.4",
+        "rollup-plugin-vue": "^5.1.9",
+        "stylus": "^0.54.8",
+        "stylus-loader": "^3.0.2",
+        "vue-template-compiler": "^2.6.11"
+    }
+}
