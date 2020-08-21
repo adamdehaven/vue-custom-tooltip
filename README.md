@@ -2,8 +2,7 @@
 
 A reusable tooltip component for Vue.js projects
 
-![Tooltip Vue component example with Twitter button](img/tooltip-example-twitter-button.png)
-![Tooltip Vue component example with abbreviation](img/tooltip-example-abbreviation.png)
+![Tooltip Vue component examples](img/vue-custom-tooltip-examples.png)
 
 ## Installation
 
