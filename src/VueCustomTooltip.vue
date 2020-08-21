@@ -111,7 +111,7 @@ export default {
 /* Set defaults */
 .vue-custom-tooltip {
     --color: #fff;
-    --background: #1b2735;
+    --background: #000;
     --border-radius: 12px;
     --font-weight: 400;
 }
@@ -127,27 +127,27 @@ $easing = ease-out
 
 tooltip-arrow($direction, $color)
     if ($direction == 'is-top')
-        border-top: 5px solid #1b2735 // default for IE
+        border-top: 5px solid #000 // default for IE
         border-top: 5px solid $color
         border-right: 5px solid transparent
         border-left: 5px solid transparent
         bottom: calc(100% + 2px)
     else if ($direction == 'is-bottom')
         border-right: 5px solid transparent
-        border-bottom: 5px solid #1b2735 // default for IE
+        border-bottom: 5px solid #000 // default for IE
         border-bottom: 5px solid $color
         border-left: 5px solid transparent
         top: calc(100% + 2px)
     else if ($direction == 'is-right')
         border-top: 5px solid transparent
-        border-right: 5px solid #1b2735 // default for IE
+        border-right: 5px solid #000 // default for IE
         border-right: 5px solid $color
         border-bottom: 5px solid transparent
         left: calc(100% + 2px)
     else if ($direction == 'is-left')
         border-top: 5px solid transparent
         border-bottom: 5px solid transparent
-        border-left: 5px solid #1b2735 // default for IE
+        border-left: 5px solid #000 // default for IE
         border-left: 5px solid $color
         right: calc(100% + 2px)
 tooltip($direction)
@@ -197,7 +197,7 @@ tooltip($direction)
     display inline-block
     text-decoration-line none !important
     &.is-underlined
-        border-bottom 1px dotted #1b2735 // default for IE
+        border-bottom 1px dotted #000 // default for IE
         border-bottom 1px dotted $tooltip-background
         line-height: 1.2
     &:before,
@@ -214,7 +214,7 @@ tooltip($direction)
         content attr(data-label)
         color #fff // default for IE
         color $tooltip-color
-        background #1b2735 // default for IE
+        background #000 // default for IE
         background $tooltip-background
         width auto
         padding 0.35rem 0.75rem 0.45rem

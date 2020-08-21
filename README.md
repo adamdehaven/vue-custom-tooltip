@@ -39,7 +39,7 @@ Vue.use(VueCustomTooltip)
 Vue.use(VueCustomTooltip, {
     name: 'VueCustomTooltip',
     color: '#fff',
-    background: '#1b2735',
+    background: '#000',
     borderRadius: 12,
     fontWeight: 400,
 })
@@ -79,7 +79,7 @@ export default ({
     Vue.use(VueCustomTooltip, {
         name: 'VueCustomTooltip',
         color: '#fff',
-        background: '#1b2735',
+        background: '#000',
         borderRadius: 12,
         fontWeight: 400,
     })
@@ -214,13 +214,13 @@ Vue.use(VueCustomTooltip, {
 ### `background`
 
 - Type: `HEX Color`
-- Default: `#1b2735`
+- Default: `#000`
 
 Customize the background color (and the `underlined` text color) of the tooltip.
 
 ``` js
 Vue.use(VueCustomTooltip, {
-    background: '#096573', // 3 or 6 digit HEX color, including a leading hash (#)
+    background: '#1b2735', // 3 or 6 digit HEX color, including a leading hash (#)
 })
 ```
 

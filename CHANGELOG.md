@@ -1,3 +1,9 @@
+## [Version 1.1.2](https://github.com/adamdehaven/vue-custom-tooltip/releases/tag/v1.1.2) (2020-08-21)
+
+### Updates
+
+- Default background color set to `#000`
+
 ## [Version 1.1.1](https://github.com/adamdehaven/vue-custom-tooltip/releases/tag/v1.1.1) (2020-08-21)
 
 ### Updates

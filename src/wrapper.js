@@ -4,7 +4,7 @@ import VueCustomTooltip from './VueCustomTooltip.vue'
 const defaultOptions = {
     name: 'VueCustomTooltip',
     color: '#fff',
-    background: '#1b2735',
+    background: '#000',
     borderRadius: 12,
     fontWeight: 400,
 }
