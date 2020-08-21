@@ -1,3 +1,9 @@
+## [Version 1.1.1](https://github.com/adamdehaven/vue-custom-tooltip/releases/tag/v1.1.1) (2020-08-21)
+
+### Updates
+
+- Added CDN and manual install instructions.
+
 ## [Version 1.1.0](https://github.com/adamdehaven/vue-custom-tooltip/releases/tag/v1.1.0) (2020-08-20)
 
 ### Fixes
