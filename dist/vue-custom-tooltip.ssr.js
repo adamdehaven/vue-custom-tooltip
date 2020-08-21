@@ -1,3 +1,7 @@
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
 //
 //
 //
@@ -181,57 +185,56 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
     return script;
 }
 
-var isOldIE = typeof navigator !== 'undefined' &&
-    /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
-function createInjector(context) {
-    return function (id, style) { return addStyle(id, style); };
+function createInjectorSSR(context) {
+    if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__;
+    }
+    if (!context)
+        { return function () { }; }
+    if (!('styles' in context)) {
+        context._styles = context._styles || {};
+        Object.defineProperty(context, 'styles', {
+            enumerable: true,
+            get: function () { return context._renderStyles(context._styles); }
+        });
+        context._renderStyles = context._renderStyles || renderStyles;
+    }
+    return function (id, style) { return addStyle(id, style, context); };
 }
-var HEAD;
-var styles = {};
-function addStyle(id, css) {
-    var group = isOldIE ? css.media || 'default' : id;
-    var style = styles[group] || (styles[group] = { ids: new Set(), styles: [] });
-    if (!style.ids.has(id)) {
-        style.ids.add(id);
+function addStyle(id, css, context) {
+    var group = process.env.NODE_ENV === 'production' ? css.media || 'default' : id;
+    var style = context._styles[group] || (context._styles[group] = { ids: [], css: '' });
+    if (!style.ids.includes(id)) {
+        style.media = css.media;
+        style.ids.push(id);
         var code = css.source;
-        if (css.map) {
+        if (process.env.NODE_ENV !== 'production' && css.map) {
             // https://developer.chrome.com/devtools/docs/javascript-debugging
             // this makes source maps inside style tags work properly in Chrome
             code += '\n/*# sourceURL=' + css.map.sources[0] + ' */';
             // http://stackoverflow.com/a/26603875
             code +=
                 '\n/*# sourceMappingURL=data:application/json;base64,' +
-                    btoa(unescape(encodeURIComponent(JSON.stringify(css.map)))) +
+                    Buffer.from(unescape(encodeURIComponent(JSON.stringify(css.map)))).toString('base64') +
                     ' */';
         }
-        if (!style.element) {
-            style.element = document.createElement('style');
-            style.element.type = 'text/css';
-            if (css.media)
-                { style.element.setAttribute('media', css.media); }
-            if (HEAD === undefined) {
-                HEAD = document.head || document.getElementsByTagName('head')[0];
-            }
-            HEAD.appendChild(style.element);
-        }
-        if ('styleSheet' in style.element) {
-            style.styles.push(code);
-            style.element.styleSheet.cssText = style.styles
-                .filter(Boolean)
-                .join('\n');
-        }
-        else {
-            var index = style.ids.size - 1;
-            var textNode = document.createTextNode(code);
-            var nodes = style.element.childNodes;
-            if (nodes[index])
-                { style.element.removeChild(nodes[index]); }
-            if (nodes.length)
-                { style.element.insertBefore(textNode, nodes[index]); }
-            else
-                { style.element.appendChild(textNode); }
-        }
+        style.css += code + '\n';
     }
+}
+function renderStyles(styles) {
+    var css = '';
+    for (var key in styles) {
+        var style = styles[key];
+        css +=
+            '<style data-vue-ssr-id="' +
+                Array.from(style.ids).join(' ') +
+                '"' +
+                (style.media ? ' media="' + style.media + '"' : '') +
+                '>' +
+                style.css +
+                '</style>';
+    }
+    return css;
 }
 
 /* script */
@@ -251,11 +254,9 @@ var __vue_staticRenderFns__ = [];
   /* scoped */
   var __vue_scope_id__ = undefined;
   /* module identifier */
-  var __vue_module_identifier__ = undefined;
+  var __vue_module_identifier__ = "data-v-6bbc0fb8";
   /* functional template */
   var __vue_is_functional_template__ = false;
-  /* style inject SSR */
-  
   /* style inject shadow dom */
   
 
@@ -268,8 +269,8 @@ var __vue_staticRenderFns__ = [];
     __vue_is_functional_template__,
     __vue_module_identifier__,
     false,
-    createInjector,
     undefined,
+    createInjectorSSR,
     undefined
   );
 
@@ -350,4 +351,4 @@ if (GlobalVue) {
 // to be registered via Vue.use() as well as Vue.component()
 __vue_component__.install = install;
 
-export default __vue_component__;
+exports.default = __vue_component__;
