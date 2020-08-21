@@ -89,9 +89,7 @@ export default ({
 
 ### In-Component Install
 
-You may also install the component directly within a single file in your project, although the import statement will slightly differ.
-
-**Note**: Installing inside a single component (instead of globally) does not allow you to customize the [Plugin Options](#options); however, you may still utilize all [`props`](#props) on the `<VueCustomTooltip>` element.
+Alternatively, you may install the component directly within a single file in your project, although the import statement will slightly differ.
 
 ``` html
 <!-- Single file component -->
@@ -109,6 +107,8 @@ export default {
 }
 </script>
 ```
+
+**Note**: Installing inside a single component (instead of globally) does not allow you to customize the [Plugin Options](#options); however, you may still utilize all [`props`](#props) on the `<VueCustomTooltip>` element.
 
 ## Usage
 
@@ -130,7 +130,7 @@ What is <VueCustomTooltip label="This is a tooltip" position="is-bottom" abbrevi
 
 ## Options
 
-Pass any of the options listed below to `Vue.use(VueCustomTooltip, {...})` to customize the plugin for your project *(not available without global installation)*.
+Pass any of the options listed below to `Vue.use(VueCustomTooltip, {...})` to customize the plugin for your project *(not available with [in-component installation](#in-component-install))*.
 
 > **A note on options tied to CSS properties**
 >
@@ -235,9 +235,7 @@ All other props may be passed as normal attributes (if the corresponding value i
 <VueCustomTooltip :label="element.helpText" :sticky="false">text/element</VueCustomTooltip>
 ```
 
----
-
-Here are all available props for the tooltip component:
+All available props for the tooltip component are listed below:
 
 ### `label`
 
