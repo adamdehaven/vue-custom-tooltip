@@ -109,6 +109,38 @@ export default {
 
 **Note**: Installing inside a single component (instead of globally) does not allow you to customize the [Plugin Options](#options); however, you may still utilize all [`props`](#props) on the `<VueCustomTooltip>` element.
 
+### CDN
+
+Import the tooltip component after importing Vue in your file after importing Vue. Installing via CDN does not allow for customizing [Plugin Options](#options).
+
+Installing via the CDN requires using the kebob-case component name.
+
+``` html
+<!-- Import Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- Import tooltip component -->
+<script src="https://unpkg.com/@adamdehaven/vue-custom-tooltip"></script>
+
+<!-- Then simply use the component -->
+<p>This is a <vue-custom-tooltip label="Neat!" underlined>tooltip</vue-custom-tooltip>.</p>
+```
+
+### Manual
+
+Download `dist/vue-custom-tooltip.min.js` and include it in your file after importing Vue. Installing manually does not allow for customizing [Plugin Options](#options).
+
+Installing manually requires using the kebob-case component name.
+
+``` html
+<!-- Import Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- Import tooltip component -->
+<script src="https://unpkg.com/@adamdehaven/vue-custom-tooltip"></script>
+
+<!-- Then simply use the component -->
+<p>This is a <vue-custom-tooltip label="Neat!" underlined>tooltip</vue-custom-tooltip>.</p>
+```
+
 ## Usage
 
 ``` html
