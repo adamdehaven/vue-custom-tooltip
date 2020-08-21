@@ -1,6 +1,6 @@
 {
     "name": "@adamdehaven/vue-custom-tooltip",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "A reusable tooltip component for Vue (and VuePress) projects.",
     "keywords": [
         "Vue",
@@ -19,26 +19,31 @@
     },
     "scripts": {
         "serve": "vue-cli-service serve",
-        "build": "npm run build:lib && npm run build:es && npm run delete:files",
-        "build:lib": "vue-cli-service build --target lib --name vue-custom-tooltip ./src/index.js --mode production",
+        "build": "npm run build:ssr & npm run build:es & npm run build:unpkg",
+        "build:ssr": "rollup --config rollup.config.js --format cjs --file dist/vue-custom-tooltip.ssr.js",
         "build:es": "rollup --config rollup.config.js --format es --file dist/vue-custom-tooltip.esm.js",
+        "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/vue-custom-tooltip.min.js",
         "delete:files": "del-cli ./dist/demo.html"
     },
-    "main": "dist/vue-custom-tooltip.umd.js",
+    "main": "dist/vue-custom-tooltip.ssr.js",
+    "browser": "dist/vue-custom-tooltip.esm.js",
+    "module": "dist/vue-custom-tooltip.esm.js",
+    "unpkg": "dist/vue-custom-tooltip.min.js",
     "files": [
-        "dist/*"
+        "dist/*",
+        "src/**/*.vue"
     ],
     "dependencies": {
         "core-js": "^3.6.5",
         "vue": "^2.6.11"
     },
     "devDependencies": {
-        "@rollup/plugin-buble": "^0.21.3",
-        "@rollup/plugin-commonjs": "^15.0.0",
         "@vue/cli-plugin-babel": "~4.5.0",
         "@vue/cli-service": "~4.5.0",
         "del-cli": "^3.0.1",
         "rollup": "^2.26.4",
+        "rollup-plugin-buble": "^0.19.8",
+        "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-vue": "^5.1.9",
         "stylus": "^0.54.8",
         "stylus-loader": "^3.0.2",

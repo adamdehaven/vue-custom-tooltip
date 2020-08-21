@@ -88,14 +88,14 @@ export default ({
 
 ### In-Component Install
 
-Alternatively, you may install the component directly within a single file in your project, although the import statement will slightly differ.
+Alternatively, you may install the component directly within a single file in your project; however, you will not be able to customize the `Vue.use()` options.
 
 ``` html
 <!-- Single file component -->
 
 <script>
-// Directly import the ES module js file
-import VueCustomTooltip from '@adamdehaven/vue-custom-tooltip/dist/vue-custom-tooltip.esm.js'
+// Import the tooltip component (no options available)
+import VueCustomTooltip from '@adamdehaven/vue-custom-tooltip'
 
 // .vue file default export
 export default {
