@@ -1,7 +1,7 @@
 {
     "name": "@adamdehaven/vue-custom-tooltip",
     "version": "1.1.3",
-    "description": "A reusable tooltip component for Vue (and VuePress) projects.",
+    "description": "A customizable, reusable, and reactive tooltip component for Vue (and VuePress) projects.",
     "keywords": [
         "Vue",
         "tooltip",
@@ -18,7 +18,6 @@
         "url": "https://github.com/adamdehaven/vue-custom-tooltip/issues"
     },
     "scripts": {
-        "serve": "vue-cli-service serve",
         "build": "npm run delete:dist && npm run build:ssr & npm run build:es & npm run build:unpkg",
         "build:ssr": "rollup --config rollup.config.js --format cjs --file dist/vue-custom-tooltip.ssr.js",
         "build:es": "rollup --config rollup.config.js --format es --file dist/vue-custom-tooltip.esm.js",

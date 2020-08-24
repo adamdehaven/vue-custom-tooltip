@@ -1,6 +1,6 @@
 # Vue-Custom-Tooltip
 
-A reusable tooltip component for Vue.js projects
+A customizable, reusable, and reactive tooltip component for Vue (and VuePress) projects.
 
 ![Tooltip Vue component examples](img/vue-custom-tooltip-examples.png)
 
@@ -48,7 +48,7 @@ Vue.use(VueCustomTooltip, {
 ### VuePress (Global Install)
 
 > **VuePress Standalone Plugin**
-> 
+>
 > I have released a standalone VuePress plugin that wraps this component into an actual VuePress Plugin installable through the `.vuepress/config.js` or `.vuepress/theme/index.js` file. If you'd rather use the standalone plugin in your VuePress project, [head over to the `vuepress-plugin-custom-tooltip` repository](https://github.com/adamdehaven/vuepress-plugin-custom-tooltip).
 
 For [VuePress](https://vuepress.vuejs.org/) projects, the `theme/enhanceApp.js` is a good location to initialize plugins.
