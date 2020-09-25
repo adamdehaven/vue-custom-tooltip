@@ -11,7 +11,8 @@ const defaultOptions = {
 
 // Declare install function executed by Vue.use()
 const install = function installMyComponent(Vue, opt) {
-    if (install.installed) return
+    // Don't install if already installed, or SSR
+    if (install.installed || Vue.prototype.$isServer) return
     install.installed = true
 
     // Grab user options
