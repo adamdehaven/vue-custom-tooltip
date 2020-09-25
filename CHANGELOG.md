@@ -1,3 +1,9 @@
+## [Version 1.2.0](https://github.com/adamdehaven/vue-custom-tooltip/releases/tag/v1.2.0) (2020-09-25)
+
+### Fixes
+
+- Don't install plugin during SSR (fixes VuePress plugin)
+
 ## [Version 1.1.2](https://github.com/adamdehaven/vue-custom-tooltip/releases/tag/v1.1.2) (2020-08-21)
 
 ### Updates
