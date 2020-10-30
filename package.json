@@ -1,6 +1,6 @@
 {
   "name": "@adamdehaven/vue-custom-tooltip",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A customizable, reusable, and reactive tooltip component for Vue (and VuePress) projects.",
   "keywords": [
     "Vue",
