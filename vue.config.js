@@ -1,13 +1,13 @@
 // vue.config.js
 module.exports = {
-    css: {
-        extract: false,
+  css: {
+    extract: false,
+  },
+  configureWebpack: {
+    devtool: 'source-map',
+    output: {
+      libraryExport: 'default',
     },
-    configureWebpack: {
-        devtool: 'source-map',
-        output: {
-            libraryExport: 'default'
-        },
-    },
-    productionSourceMap: false,
+  },
+  productionSourceMap: false,
 }

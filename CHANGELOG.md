@@ -1,3 +1,9 @@
+## [Version 1.2.1](https://github.com/adamdehaven/vue-custom-tooltip/releases/tag/v1.2.1) (2020-10-30)
+
+### Misc.
+
+- Added Prettier; no changes to functionality or configuration.
+
 ## [Version 1.2.0](https://github.com/adamdehaven/vue-custom-tooltip/releases/tag/v1.2.0) (2020-09-25)
 
 ### Fixes

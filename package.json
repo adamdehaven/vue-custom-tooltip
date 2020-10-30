@@ -1,53 +1,56 @@
 {
-    "name": "@adamdehaven/vue-custom-tooltip",
-    "version": "1.2.0",
-    "description": "A customizable, reusable, and reactive tooltip component for Vue (and VuePress) projects.",
-    "keywords": [
-        "Vue",
-        "tooltip",
-        "component",
-        "VuePress"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/adamdehaven/vue-custom-tooltip.git"
-    },
-    "author": "Adam DeHaven <adam@dehaven.org> (https://www.adamdehaven.com/)",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/adamdehaven/vue-custom-tooltip/issues"
-    },
-    "scripts": {
-        "build": "npm run delete:dist && npm run build:ssr & npm run build:es & npm run build:unpkg",
-        "build:ssr": "rollup --config rollup.config.js --format cjs --file dist/vue-custom-tooltip.ssr.js",
-        "build:es": "rollup --config rollup.config.js --format es --file dist/vue-custom-tooltip.esm.js",
-        "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/vue-custom-tooltip.min.js",
-        "delete:dist": "del-cli ./dist/*",
-        "version": "npm run build && git add -A",
-        "postversion": "git push && git push --tags"
-    },
-    "main": "dist/vue-custom-tooltip.ssr.js",
-    "browser": "dist/vue-custom-tooltip.esm.js",
-    "module": "dist/vue-custom-tooltip.esm.js",
-    "unpkg": "dist/vue-custom-tooltip.min.js",
-    "files": [
-        "dist/*",
-        "src/**/*.vue"
-    ],
-    "dependencies": {
-        "core-js": "^3.6.5",
-        "vue": "^2.6.11"
-    },
-    "devDependencies": {
-        "@vue/cli-plugin-babel": "~4.5.0",
-        "@vue/cli-service": "~4.5.0",
-        "del-cli": "^3.0.1",
-        "rollup": "^2.26.4",
-        "rollup-plugin-buble": "^0.19.8",
-        "rollup-plugin-commonjs": "^10.1.0",
-        "rollup-plugin-vue": "^5.1.9",
-        "stylus": "^0.54.8",
-        "stylus-loader": "^3.0.2",
-        "vue-template-compiler": "^2.6.11"
-    }
+  "name": "@adamdehaven/vue-custom-tooltip",
+  "version": "1.2.0",
+  "description": "A customizable, reusable, and reactive tooltip component for Vue (and VuePress) projects.",
+  "keywords": [
+    "Vue",
+    "tooltip",
+    "component",
+    "VuePress"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamdehaven/vue-custom-tooltip.git"
+  },
+  "author": "Adam DeHaven <adam@dehaven.org> (https://www.adamdehaven.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adamdehaven/vue-custom-tooltip/issues"
+  },
+  "scripts": {
+    "build": "npm run prettier:fix && npm run delete:dist && npm run build:ssr & npm run build:es & npm run build:unpkg",
+    "build:ssr": "rollup --config rollup.config.js --format cjs --file dist/vue-custom-tooltip.ssr.js",
+    "build:es": "rollup --config rollup.config.js --format es --file dist/vue-custom-tooltip.esm.js",
+    "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/vue-custom-tooltip.min.js",
+    "delete:dist": "del-cli ./dist/*",
+    "version": "npm run build && git add -A",
+    "postversion": "git push && git push --tags",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write ."
+  },
+  "main": "dist/vue-custom-tooltip.ssr.js",
+  "browser": "dist/vue-custom-tooltip.esm.js",
+  "module": "dist/vue-custom-tooltip.esm.js",
+  "unpkg": "dist/vue-custom-tooltip.min.js",
+  "files": [
+    "dist/*",
+    "src/**/*.vue"
+  ],
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "del-cli": "^3.0.1",
+    "prettier": "2.1.2",
+    "rollup": "^2.26.4",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-vue": "^5.1.9",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^3.0.2",
+    "vue-template-compiler": "^2.6.11"
+  }
 }

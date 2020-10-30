@@ -1,0 +1,28 @@
+# Dist
+dist/
+
+# node modules
+node_modules
+package.json
+package-lock.json
+
+# MacOS desktop services store
+.DS_Store
+
+# Log files
+*.log
+
+# Map files
+*.map
+
+# Editors
+.vscode
+
+# VuePress temp directory
+.temp
+
+# Source Control
+.github
+
+# Secure
+.env
