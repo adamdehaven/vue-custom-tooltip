@@ -63,19 +63,19 @@
     computed: {
       dynamicStyles() {
         return {
-          '--color':
+          '--vue-custom-tooltip-color':
             this.$vueCustomTooltip && this.$vueCustomTooltip.hasOwnProperty('color')
               ? this.$vueCustomTooltip.color
               : null,
-          '--background':
+          '--vue-custom-tooltip-background':
             this.$vueCustomTooltip && this.$vueCustomTooltip.hasOwnProperty('background')
               ? this.$vueCustomTooltip.background
               : null,
-          '--border-radius':
+          '--vue-custom-tooltip-border-radius':
             this.$vueCustomTooltip && this.$vueCustomTooltip.hasOwnProperty('borderRadius')
               ? this.$vueCustomTooltip.borderRadius
               : null,
-          '--font-weight':
+          '--vue-custom-tooltip-font-weight':
             this.$vueCustomTooltip && this.$vueCustomTooltip.hasOwnProperty('fontWeight')
               ? this.$vueCustomTooltip.fontWeight
               : null,
@@ -138,50 +138,50 @@
 <style>
   /* Set defaults */
   .vue-custom-tooltip {
-    --color: #fff;
-    --background: #000;
-    --border-radius: 12px;
-    --font-weight: 400;
+    --vue-custom-tooltip-color: #fff;
+    --vue-custom-tooltip-background: #000;
+    --vue-custom-tooltip-border-radius: 12px;
+    --vue-custom-tooltip-font-weight: 400;
   }
 </style>
 
 <style lang="stylus">
-  $tooltip-color = var(--color) // default color
-  $tooltip-background = var(--background) // default background color
-  $tooltip-radius = var(--border-radius) // default border radius
-  $weight-normal = var(--font-weight) // default font weight
+  $tooltip-color = var(--vue-custom-tooltip-color) // default color
+  $tooltip-background = var(--vue-custom-tooltip-background) // default background color
+  $tooltip-radius = var(--vue-custom-tooltip-border-radius) // default border radius
+  $weight-normal = var(--vue-custom-tooltip-font-weight) // default font weight
   $speed = 86ms
   $easing = ease-out
 
   tooltip-arrow($direction, $color)
       if ($direction == 'is-top')
-          border-top: 5px solid #000 // default for IE
-          border-top: 5px solid $color
-          border-right: 5px solid transparent
-          border-left: 5px solid transparent
-          bottom: calc(100% + 2px)
+          border-top 5px solid #000 // default for IE
+          border-top 5px solid $color
+          border-right 5px solid transparent
+          border-left 5px solid transparent
+          bottom calc(100% + 2px)
       else if ($direction == 'is-bottom')
-          border-right: 5px solid transparent
-          border-bottom: 5px solid #000 // default for IE
-          border-bottom: 5px solid $color
-          border-left: 5px solid transparent
-          top: calc(100% + 2px)
+          border-right 5px solid transparent
+          border-bottom 5px solid #000 // default for IE
+          border-bottom 5px solid $color
+          border-left 5px solid transparent
+          top calc(100% + 2px)
       else if ($direction == 'is-right')
-          border-top: 5px solid transparent
-          border-right: 5px solid #000 // default for IE
-          border-right: 5px solid $color
-          border-bottom: 5px solid transparent
-          left: calc(100% + 2px)
+          border-top 5px solid transparent
+          border-right 5px solid #000 // default for IE
+          border-right 5px solid $color
+          border-bottom 5px solid transparent
+          left calc(100% + 2px)
       else if ($direction == 'is-left')
-          border-top: 5px solid transparent
-          border-bottom: 5px solid transparent
-          border-left: 5px solid #000 // default for IE
-          border-left: 5px solid $color
-          right: calc(100% + 2px)
+          border-top 5px solid transparent
+          border-bottom 5px solid transparent
+          border-left 5px solid #000 // default for IE
+          border-left 5px solid $color
+          right calc(100% + 2px)
+
   tooltip($direction)
       &.{$direction}
-          &:before,
-          &:after
+          &:before, &:after
               if ($direction == 'is-top')
                   top auto
                   right auto
@@ -206,15 +206,20 @@
                   bottom auto
                   left auto
                   transform translateY(-50%)
+
           &:before
               tooltip-arrow($direction, $tooltip-background)
+
           &.has-multiline
               &.is-small:after
                   width 140px
+
               &.is-medium:after
                   width 210px
+
               &.is-large:after
                   width 280px
+
   // Base
   .vue-custom-tooltip
       tooltip('is-top')
@@ -224,20 +229,23 @@
       position relative
       display inline-block
       text-decoration-line none !important
+
       &.is-underlined
           border-bottom 1px dotted #000 // default for IE
           border-bottom 1px dotted $tooltip-background
-          line-height: 1.2
-      &:before,
-      &:after
+          line-height 1.2
+
+      &:before, &:after
           position absolute
-          content ""
+          content ''
           opacity 0
           visibility hidden
           pointer-events none
           transition opacity $speed $easing, visibility $speed $easing
+
       &:before
           z-index 889
+
       &:after
           content attr(data-label)
           color #fff // default for IE
@@ -257,18 +265,20 @@
           box-shadow 0px 1px 2px 1px rgba(0, 1, 0, 0.2)
           z-index 888
           white-space nowrap
-      &:not([data-label=""]):hover:before,
-      &:not([data-label=""]):hover:after
+
+      &:not([data-label='']):hover:before, &:not([data-label='']):hover:after
           opacity 1
           visibility visible
+
       // If parent is disabled
       :disabled &
           pointer-events none
-      &:not([data-label=""]).is-sticky
-          &:before,
-          &:after
+
+      &:not([data-label='']).is-sticky
+          &:before, &:after
               opacity 1
               visibility visible
+
       &.has-multiline
           &:after
               display flex-block

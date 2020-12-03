@@ -1,3 +1,9 @@
+## [Version 1.3.0](https://github.com/adamdehaven/vue-custom-tooltip/releases/tag/v1.3.0) (2020-12-03)
+
+### Updates
+
+- Renamed CSS variables to prevent potential conflicts with general variable names.
+
 ## [Version 1.2.1](https://github.com/adamdehaven/vue-custom-tooltip/releases/tag/v1.2.1) (2020-10-30)
 
 ### Misc.
