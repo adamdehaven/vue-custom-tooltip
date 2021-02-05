@@ -37,20 +37,20 @@
     "src/**/*.vue"
   ],
   "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "core-js": "^3.8.3",
+    "vue": "^2.6.12"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
+    "@vue/cli-plugin-babel": "^4.5.11",
+    "@vue/cli-service": "^4.5.11",
     "del-cli": "^3.0.1",
-    "prettier": "2.1.2",
-    "rollup": "^2.26.4",
+    "prettier": "^2.2.1",
+    "rollup": "^2.38.5",
     "rollup-plugin-buble": "^0.19.8",
     "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-vue": "^5.1.9",
+    "rollup-plugin-vue": "^6.0.0",
     "stylus": "^0.54.8",
-    "stylus-loader": "^3.0.2",
-    "vue-template-compiler": "^2.6.11"
+    "stylus-loader": "^5.0.0",
+    "vue-template-compiler": "^2.6.12"
   }
 }

@@ -1,3 +1,9 @@
+## [Version 1.3.1](https://github.com/adamdehaven/vue-custom-tooltip/releases/tag/v1.3.1) (2021-02-05)
+
+### Updates
+
+- Updated package dependencies.
+
 ## [Version 1.3.0](https://github.com/adamdehaven/vue-custom-tooltip/releases/tag/v1.3.0) (2020-12-03)
 
 ### Updates
