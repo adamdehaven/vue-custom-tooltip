@@ -117,7 +117,7 @@ Alternatively, you may install the component directly within a single file in yo
 
 Import the tooltip component after importing Vue in your file after importing Vue. Installing via CDN does not allow for customizing [Plugin Options](#options).
 
-Installing via the CDN requires using the kebob-case component name.
+Installing via the CDN requires using the kebab-case component name.
 
 ```html
 <!-- Import Vue -->
@@ -133,7 +133,7 @@ Installing via the CDN requires using the kebob-case component name.
 
 Download `dist/vue-custom-tooltip.min.js` and include it in your file after importing Vue. Installing manually does not allow for customizing [Plugin Options](#options).
 
-Installing manually requires using the kebob-case component name.
+Installing manually requires using the kebab-case component name.
 
 ```html
 <!-- Import Vue -->
@@ -177,29 +177,29 @@ Pass any of the options listed below to `Vue.use(VueCustomTooltip, {...})` to cu
 - Type: `String`
 - Default: `VueCustomTooltip`
 
-Customize the name of the component you will use in your project. **Camel-case names are preferred**, as this allows for camel-case or kebob-case usage within your project.
+Customize the name of the component you will use in your project. **Pascal-case names are preferred**, as this allows for pascal-case or kebab-case usage within your project.
 
 ```js
 Vue.use(VueCustomTooltip, {
-  name: 'SuperCoolTooltip', // camel-case preferred
+  name: 'SuperCoolTooltip', // pascal-case preferred
 })
 ```
 
-If you registered the name using camel-case, you can reference the tooltip component via camel-case _or_ kebob-case:
+If you registered the name using pascal-case, you can reference the tooltip component via pascal-case _or_ kebab-case:
 
 ```html
 <!-- Default name (user did not pass the 'name' option) -->
 
-<!-- camel-case -->
+<!-- pascal-case -->
 Nice <VueCustomTooltip label="Neat!">tooltip</VueCustomTooltip>!
-<!-- kebob-case -->
+<!-- kebab-case -->
 Nice <vue-custom-tooltip label="Neat!">tooltip</vue-custom-tooltip>!
 
 <!-- Custom name (allows user to rename component) -->
 
-<!-- camel-case -->
+<!-- pascal-case -->
 Nice <SuperCoolTooltip label="Neat!">tooltip</SuperCoolTooltip>!
-<!-- kebob-case -->
+<!-- kebab-case -->
 Nice <super-cool-tooltip label="Neat!">tooltip</super-cool-tooltip>!
 ```
 
