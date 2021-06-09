@@ -122,7 +122,7 @@ $easing: ease-out;
     background: $tooltip-background;
     width: auto;
     padding: 0.45rem 0.75rem 0.45rem;
-    border-radius: 12px; // default for IE
+    border-radius: 100px; // default for IE
     border-radius: $tooltip-radius;
     font-size: 0.85rem !important;
     font-weight: 400; // default for IE
@@ -156,7 +156,7 @@ $easing: ease-out;
 
   &.has-multiline {
     &:after {
-      display: flex-block;
+      display: block;
       padding: 0.5rem 0.75rem 0.65rem;
       text-align: center;
       line-height: 1.4;
