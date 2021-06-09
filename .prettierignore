@@ -1,28 +1,22 @@
-# Dist
-dist/
-
-# node modules
-node_modules
-package.json
-package-lock.json
-
-# MacOS desktop services store
 .DS_Store
+node_modules
+/dist
+
+# local env files
+.env.local
+.env.*.local
 
 # Log files
-*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Map files
-*.map
-
-# Editors
+# Editor directories and files
+.idea
 .vscode
-
-# VuePress temp directory
-.temp
-
-# Source Control
-.github
-
-# Secure
-.env
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

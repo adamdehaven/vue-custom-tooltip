@@ -1,25 +1,56 @@
-import commonjs from 'rollup-plugin-commonjs' // Convert CommonJS modules to ES6
 import vue from 'rollup-plugin-vue' // Handle .vue SFC files
-import buble from 'rollup-plugin-buble' // Transpile/polyfill with reasonable browser support
-import minimist from 'minimist' // Parse build command
+import typescript from 'rollup-plugin-typescript2'
+import postcss from 'rollup-plugin-postcss'
+import commonjs from '@rollup/plugin-commonjs' // Convert CommonJS modules to ES6
+import buble from '@rollup/plugin-buble' // Transpile/polyfill with reasonable browser support
+import { terser } from 'rollup-plugin-terser'
+import pkg from './package.json'
 
-const argv = minimist(process.argv.slice(2)) // Access build arguments as an object
-
-export default {
-  input: 'src/wrapper.js', // Path relative to package.json
-  output: {
-    name: 'VueCustomTooltip',
-    exports: 'named',
-  },
-  plugins: [
-    commonjs(),
-    vue({
-      css: true, // Dynamically inject css as a <style> tag
-      template: {
-        isProduction: true,
-        optimizeSSR: argv.format === 'cjs', // Only optimize for SSR in that build
+function createEntry({ file, format, minify }) {
+  const config = {
+    input: './src/index.ts',
+    external: ['vue'],
+    output: {
+      name: 'VueCustomTooltip',
+      file: file,
+      format: format,
+      exports: 'default',
+      globals: {
+        vue: 'Vue',
       },
-    }),
-    buble(), // Transpile to ES5
-  ],
+    },
+    plugins: [
+      postcss({
+        extract: false,
+        inject: true,
+        minimize: true,
+        modules: false,
+        use: ['sass'],
+      }),
+      typescript(),
+      vue({
+        css: true,
+        template: {
+          optimizeSSR: format === 'cjs',
+        },
+      }),
+      buble(), // Transpile to ES5
+    ],
+  }
+
+  if (format !== 'es') {
+    config.plugins.push(commonjs())
+  }
+
+  if (minify) {
+    config.plugins.push(terser())
+  }
+
+  return config
 }
+
+export default [
+  createEntry({ format: 'cjs', file: pkg.main, minify: false }),
+  createEntry({ format: 'es', file: pkg.module, minify: false }),
+  createEntry({ format: 'iife', file: pkg.unpkg, minify: true }),
+]

@@ -1,4 +1,6 @@
-import { defineComponent, inject, onMounted, h } from 'vue';
+'use strict';
+
+var vue = require('vue');
 
 var defaultTooltipOptions = {
     name: 'VueCustomTooltip',
@@ -8,7 +10,7 @@ var defaultTooltipOptions = {
     fontWeight: 400,
 };
 
-var script = defineComponent({
+var script = vue.defineComponent({
     name: 'VueCustomTooltip',
     props: {
         label: String,
@@ -42,7 +44,7 @@ var script = defineComponent({
         var slots = ref.slots;
         var attrs = ref.attrs;
 
-        var tooltipOptions = inject('vue-custom-tooltip', defaultTooltipOptions);
+        var tooltipOptions = vue.inject('vue-custom-tooltip', defaultTooltipOptions);
         var setCssVars = function () {
             var htmlRoot = document && document.documentElement ? document.documentElement : null;
             if (htmlRoot) {
@@ -54,9 +56,9 @@ var script = defineComponent({
                 /* eslint-enable @typescript-eslint/no-non-null-assertion */
             }
         };
-        onMounted(setCssVars);
+        vue.onMounted(setCssVars);
         return function () { return [
-            h(props.abbreviation ? 'abbr' : 'span', Object.assign({}, attrs, {
+            vue.h(props.abbreviation ? 'abbr' : 'span', Object.assign({}, attrs, {
                 'class': [
                     props.position,
                     props.multiline ? 'is-large' : props.size,
@@ -149,4 +151,4 @@ var index = {
     },
 };
 
-export default index;
+module.exports = index;
