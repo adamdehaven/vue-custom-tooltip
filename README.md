@@ -1,10 +1,14 @@
 # Vue-Custom-Tooltip
 
-A customizable, reusable, and reactive tooltip component for Vue (and VuePress) projects.
+A customizable, reusable, and reactive tooltip component for Vue 2 & 3 (and VuePress) projects.
 
 ![Tooltip Vue component examples](img/vue-custom-tooltip-examples.png)
 
 ## Installation
+
+Installation instructions depend on the version of Vue.js you are using (2 or 3).
+
+### Vue 2
 
 ```sh
 # With npm
@@ -14,12 +18,26 @@ npm install @adamdehaven/vue-custom-tooltip
 yarn add @adamdehaven/vue-custom-tooltip
 ```
 
-### Vue.js (Global Install)
+### Vue 3 (including TypeScript compatibility)
 
-It is recommended to install the plugin in your Vue project's entry file. For projects created with [`@vue/cli`](https://cli.vuejs.org/), this is likely your `main.js` file where you are already importing `Vue`.
+When installing, make sure to pass the `@next` tag
+
+```sh
+# With npm
+npm install @adamdehaven/vue-custom-tooltip@next
+
+# or Yarn
+yarn add @adamdehaven/vue-custom-tooltip@next
+```
+
+## Initialize Plugin
+
+### Vue.js (globally available)
+
+It is recommended to initialize the plugin in your Vue project's entry file. For projects created with [`@vue/cli`](https://cli.vuejs.org/), this is likely your `main.{js|ts}` file where you are already importing `Vue`.
 
 ```js
-// main.js (or your Vue entry file)
+// main.{js|ts} (or your Vue entry file)
 
 // Import Vue... you're probably already doing this
 import Vue from 'vue'
@@ -40,12 +58,130 @@ Vue.use(VueCustomTooltip, {
   name: 'VueCustomTooltip',
   color: '#fff',
   background: '#000',
-  borderRadius: 12,
+  borderRadius: 100,
   fontWeight: 400,
 })
 ```
 
-### VuePress (Global Install)
+### In-Component (locally available)
+
+Alternatively, you may initialize the component directly within a single file in your project.
+
+**Notes on in-component initialization**:
+
+- Initializing within a component does not allow for customizing the [Plugin Options](#options); however, you may still utilize all [`props`](#props) on the `<VueCustomTooltip>` element.
+
+```html
+<!-- Single file component -->
+
+<script>
+  // Import the tooltip component (no options available)
+  import VueCustomTooltip from '@adamdehaven/vue-custom-tooltip'
+
+  // .vue file default export
+  export default {
+    // Register the component
+    components: {
+      VueCustomTooltip,
+    },
+  }
+</script>
+```
+
+### Via CDN
+
+Load the tooltip component after first importing Vue.
+
+**Notes on CDN Import with Vue 2**:
+
+- Initializing via CDN with Vue 2 requires using the kebab-case component name.
+- Initializing via CDN with Vue 2 does not allow for customizing the [Plugin Options](#options); however, you may still utilize all [`props`](#props) on the `<vue-custom-tooltip>` element.
+
+```html
+<body>
+  <div id="app">
+    <!-- Use the component with props -->
+    <p>This is a <vue-custom-tooltip label="Neat!" underlined>tooltip</vue-custom-tooltip>.</p>
+  </div>
+
+  <!-- Import Vue & Tooltip Component -->
+
+  <!-- ======= Vue 2 ======= -->
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <script src="https://unpkg.com/@adamdehaven/vue-custom-tooltip"></script>
+
+  <!-- ======== OR ======== -->
+
+  <!-- ======= Vue 3 ======= -->
+  <script src="https://unpkg.com/vue@next/dist/vue.global.prod.js"></script>
+  <script src="https://unpkg.com/@adamdehaven/vue-custom-tooltip@next"></script>
+
+  <!-- Initialize Vue -->
+  <script>
+    // ======= Vue 2 =======
+    new Vue({
+      el: '#app',
+    })
+
+    // ======== OR ========
+
+    // ======= Vue 3 =======
+    const { createApp } = Vue
+    const app = createApp({})
+    app.use(VueCustomTooltip, { ...tooltipOptions })
+    app.mount('#app')
+  </script>
+</body>
+```
+
+### Manual / Local Import
+
+Download the correct version of `dist/vue-custom-tooltip.min.js` based on your version of Vue, and include it in your file after importing Vue.
+
+**Notes on Manual / Local Import with Vue 2**:
+
+- Initializing manually with Vue 2 requires using the kebab-case component name.
+- Initializing manually with Vue 2 does not allow for customizing the [Plugin Options](#options); however, you may still utilize all [`props`](#props) on the `<vue-custom-tooltip>` element.
+
+```html
+<body>
+  <div id="app">
+    <!-- Use the component with props -->
+    <p>This is a <vue-custom-tooltip label="Neat!" underlined>tooltip</vue-custom-tooltip>.</p>
+  </div>
+
+  <!-- Import Vue -->
+
+  <!-- Vue 2 -->
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+  <!-- === OR === -->
+
+  <!-- Vue 3 -->
+  <script src="https://unpkg.com/vue@next/dist/vue.global.js"></script>
+
+  <!-- Import tooltip component -->
+  <script src="../path/to/local/vue-custom-tooltip.min.js"></script>
+
+  <!-- Initialize Vue -->
+  <script>
+    // ======= Vue 2 =======
+    new Vue({
+      el: '#app',
+    })
+
+    // ======== OR ========
+
+    // ======= Vue 3 =======
+    const { createApp } = Vue
+    const app = createApp({})
+    app.use(VueCustomTooltip, { ...tooltipOptions })
+    app.mount('#app')
+  </script>
+</body>
+```
+
+### VuePress (Global)
 
 > **VuePress Standalone Plugin**
 >
@@ -84,65 +220,10 @@ export default ({
     name: 'VueCustomTooltip',
     color: '#fff',
     background: '#000',
-    borderRadius: 12,
+    borderRadius: 100,
     fontWeight: 400,
   })
 }
-```
-
-### In-Component Install
-
-Alternatively, you may install the component directly within a single file in your project; however, you will not be able to customize the `Vue.use()` options.
-
-```html
-<!-- Single file component -->
-
-<script>
-  // Import the tooltip component (no options available)
-  import VueCustomTooltip from '@adamdehaven/vue-custom-tooltip'
-
-  // .vue file default export
-  export default {
-    // Register the component
-    components: {
-      VueCustomTooltip,
-    },
-  }
-</script>
-```
-
-**Note**: Installing inside a single component (instead of globally) does not allow you to customize the [Plugin Options](#options); however, you may still utilize all [`props`](#props) on the `<VueCustomTooltip>` element.
-
-### CDN
-
-Import the tooltip component after importing Vue in your file after importing Vue. Installing via CDN does not allow for customizing [Plugin Options](#options).
-
-Installing via the CDN requires using the kebob-case component name.
-
-```html
-<!-- Import Vue -->
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-<!-- Import tooltip component -->
-<script src="https://unpkg.com/@adamdehaven/vue-custom-tooltip"></script>
-
-<!-- Then simply use the component -->
-<p>This is a <vue-custom-tooltip label="Neat!" underlined>tooltip</vue-custom-tooltip>.</p>
-```
-
-### Manual
-
-Download `dist/vue-custom-tooltip.min.js` and include it in your file after importing Vue. Installing manually does not allow for customizing [Plugin Options](#options).
-
-Installing manually requires using the kebob-case component name.
-
-```html
-<!-- Import Vue -->
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-<!-- Import tooltip component -->
-<script src="https://unpkg.com/@adamdehaven/vue-custom-tooltip"></script>
-
-<!-- Then simply use the component -->
-<p>This is a <vue-custom-tooltip label="Neat!" underlined>tooltip</vue-custom-tooltip>.</p>
 ```
 
 ## Usage
@@ -177,29 +258,29 @@ Pass any of the options listed below to `Vue.use(VueCustomTooltip, {...})` to cu
 - Type: `String`
 - Default: `VueCustomTooltip`
 
-Customize the name of the component you will use in your project. **Camel-case names are preferred**, as this allows for camel-case or kebob-case usage within your project.
+Customize the name of the component you will use in your project. **PascalCase names are preferred**, as this allows for PascalCase or kebab-case usage within your project.
 
 ```js
 Vue.use(VueCustomTooltip, {
-  name: 'SuperCoolTooltip', // camel-case preferred
+  name: 'SuperCoolTooltip', // PascalCase preferred
 })
 ```
 
-If you registered the name using camel-case, you can reference the tooltip component via camel-case _or_ kebob-case:
+If you registered the name using PascalCase, you can reference the tooltip component via PascalCase _or_ kebab-case:
 
 ```html
 <!-- Default name (user did not pass the 'name' option) -->
 
-<!-- camel-case -->
+<!-- PascalCase -->
 Nice <VueCustomTooltip label="Neat!">tooltip</VueCustomTooltip>!
-<!-- kebob-case -->
+<!-- kebab-case -->
 Nice <vue-custom-tooltip label="Neat!">tooltip</vue-custom-tooltip>!
 
 <!-- Custom name (allows user to rename component) -->
 
-<!-- camel-case -->
+<!-- PascalCase -->
 Nice <SuperCoolTooltip label="Neat!">tooltip</SuperCoolTooltip>!
-<!-- kebob-case -->
+<!-- kebab-case -->
 Nice <super-cool-tooltip label="Neat!">tooltip</super-cool-tooltip>!
 ```
 
@@ -232,13 +313,13 @@ Vue.use(VueCustomTooltip, {
 ### `borderRadius`
 
 - Type: `Number`
-- Default: `12`
+- Default: `100`
 
 Customize the border-radius of the tooltip. Must be an integer.
 
 ```js
 Vue.use(VueCustomTooltip, {
-  borderRadius: 4,
+  borderRadius: 24,
 })
 ```
 
@@ -327,7 +408,7 @@ Add a dotted border under the contained text (the same color as the [background]
 - Type: `Boolean`
 - Default: `false`
 
-Allows the tooltip text to wrap to multiple lines as needed. Can be used in conjunction with the [`size`](#size) prop to adjust the width of the tooltip.
+Allows the tooltip text to wrap to multiple lines as needed. If set to true, automatically sets the [`size`](#size) prop to `is-large`.
 
 ### `size`
 

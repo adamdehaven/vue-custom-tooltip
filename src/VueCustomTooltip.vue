@@ -140,16 +140,16 @@
   .vue-custom-tooltip {
     --vue-custom-tooltip-color: #fff;
     --vue-custom-tooltip-background: #000;
-    --vue-custom-tooltip-border-radius: 12px;
+    --vue-custom-tooltip-border-radius: 100px;
     --vue-custom-tooltip-font-weight: 400;
   }
 </style>
 
 <style lang="stylus">
-  $tooltip-color = var(--vue-custom-tooltip-color) // default color
-  $tooltip-background = var(--vue-custom-tooltip-background) // default background color
-  $tooltip-radius = var(--vue-custom-tooltip-border-radius) // default border radius
-  $weight-normal = var(--vue-custom-tooltip-font-weight) // default font weight
+  $tooltip-color = var(--vue-custom-tooltip-color, #fff) // default color
+  $tooltip-background = var(--vue-custom-tooltip-background, #000) // default background color
+  $tooltip-radius = var(--vue-custom-tooltip-border-radius, 100px) // default border radius
+  $weight-normal = var(--vue-custom-tooltip-font-weight, 400) // default font weight
   $speed = 86ms
   $easing = ease-out
 
@@ -254,7 +254,7 @@
           background $tooltip-background
           width auto
           padding 0.35rem 0.75rem 0.45rem
-          border-radius 12px // default for IE
+          border-radius 100px // default for IE
           border-radius $tooltip-radius
           font-size 0.85rem !important
           font-weight 400 // default for IE
@@ -281,7 +281,7 @@
 
       &.has-multiline
           &:after
-              display flex-block
+              display block
               padding 0.5rem 0.75rem 0.65rem
               text-align center
               line-height 1.4

@@ -5,7 +5,7 @@ const defaultOptions = {
   name: 'VueCustomTooltip',
   color: '#fff',
   background: '#000',
-  borderRadius: 12,
+  borderRadius: 100,
   fontWeight: 400,
 }
 
