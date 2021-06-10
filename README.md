@@ -6,7 +6,7 @@ A customizable, reusable, and reactive tooltip component for Vue 2 & 3 (and VueP
 
 ## Installation
 
-Installation instructions depend on the version of Vue.js you are using (2 or 3).
+Installation instructions depend on the version of Vue.js you are using (Vue `2.x` or `3.x`).
 
 ### Vue 2
 
