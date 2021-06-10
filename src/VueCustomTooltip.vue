@@ -218,7 +218,8 @@
                   width 210px
 
               &.is-large:after
-                  width 280px
+                  width 480px
+                  padding: 0.6rem 1rem 0.65rem
 
   // Base
   .vue-custom-tooltip
