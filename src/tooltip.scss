@@ -121,6 +121,7 @@ $easing: ease-out;
     background: #000; // default for IE
     background: $tooltip-background;
     width: auto;
+    max-width: 100vw;
     padding: 0.45rem 0.75rem 0.45rem;
     border-radius: 100px; // default for IE
     border-radius: $tooltip-radius;
