@@ -23,7 +23,6 @@ export default defineComponent({
         return ['is-top', 'is-bottom', 'is-left', 'is-right'].indexOf(value) > -1
       },
     },
-    // Size of the tooltip - forces 'is-large' if multiline is true
     size: {
       type: String,
       default: 'is-medium',
@@ -55,7 +54,8 @@ export default defineComponent({
         Object.assign({}, attrs, {
           'class': [
             props.position,
-            props.multiline ? 'is-large' : props.size, // force large size if multiline is true
+            // force at least medium size if multiline is true
+            props.multiline && props.size === 'is-small' ? 'is-medium' : props.size,
             {
               'vue-custom-tooltip': props.active && props.label,
               'is-sticky': props.sticky,

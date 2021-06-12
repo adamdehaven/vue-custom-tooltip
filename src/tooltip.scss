@@ -74,12 +74,13 @@ $easing: ease-out;
       }
 
       &.is-medium:after {
-        width: 210px;
+        width: 250px;
+        padding: 0.6rem 1.25rem 0.65rem;
       }
 
       &.is-large:after {
-        width: 340px;
-        padding: 0.6rem 1rem 0.65rem;
+        width: 480px;
+        padding: 0.6rem 1.25rem 0.65rem;
       }
     }
   }
