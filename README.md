@@ -408,7 +408,7 @@ Add a dotted border under the contained text (the same color as the [background]
 - Type: `Boolean`
 - Default: `false`
 
-Allows the tooltip text to wrap to multiple lines as needed. If set to true, automatically sets the [`size`](#size) prop to `is-large`.
+Allows the tooltip text to wrap to multiple lines as needed. Should be used in conjunction with the `size` property.
 
 ### `size`
 

@@ -215,7 +215,8 @@ tooltip($direction)
                 width 140px
 
             &.is-medium:after
-                width 210px
+                width 250px
+                padding 0.6rem 1.25rem 0.65rem
 
             &.is-large:after
                 width 480px
