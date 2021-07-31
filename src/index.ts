@@ -59,4 +59,4 @@ export default ((): InstallableComponent => {
   return installable
 })()
 
-export { VueCustomTooltip }
+export { VueCustomTooltip, TooltipOptions }

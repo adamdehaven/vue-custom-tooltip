@@ -253,6 +253,33 @@ Pass any of the options listed below to `Vue.use(VueCustomTooltip, {...})` to cu
 >
 > The `color`, `background`, `borderRadius`, and `fontWeight` attributes listed below are set on the psuedo element using [CSS Variables (Custom Properties)](https://caniuse.com/#feat=css-variables), meaning they will fallback to their default values in unsupported browsers (e.g. Internet Explorer).
 
+### Type Declarations for tooltip options
+
+```ts
+export interface TooltipOptions {
+  name?: string
+  color?: string
+  background?: string
+  borderRadius?: number
+  fontWeight?: number
+}
+```
+
+You may import the TypeScript interface along with the plugin into your entry file as shown here:
+
+```ts
+// main.ts
+
+import VueCustomTooltip, { TooltipOptions } from '@adamdehaven/vue-custom-tooltip'
+
+// Then, to import the plugin and use the interface
+const options: TooltipOptions = {
+  background: '#0007ac1',
+}
+
+Vue.use(VueCustomTooltip, options)
+```
+
 ### `name`
 
 - Type: `String`

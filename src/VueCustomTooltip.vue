@@ -35,6 +35,10 @@ export default defineComponent({
     const tooltipOptions: TooltipOptions = inject('vue-custom-tooltip', defaultTooltipOptions)
 
     const setCssVars = () => {
+      if (!tooltipOptions || !defaultTooltipOptions) {
+        return
+      }
+
       const htmlRoot: HTMLElement | null = document && document.documentElement ? document.documentElement : null
       if (htmlRoot) {
         /* eslint-disable @typescript-eslint/no-non-null-assertion */

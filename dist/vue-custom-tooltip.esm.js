@@ -43,6 +43,9 @@ var script = defineComponent({
 
         var tooltipOptions = inject('vue-custom-tooltip', defaultTooltipOptions);
         var setCssVars = function () {
+            if (!tooltipOptions || !defaultTooltipOptions) {
+                return;
+            }
             var htmlRoot = document && document.documentElement ? document.documentElement : null;
             if (htmlRoot) {
                 /* eslint-disable @typescript-eslint/no-non-null-assertion */
