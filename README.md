@@ -250,7 +250,7 @@ What is
 
 ## Options
 
-Pass any of the options listed below to `Vue.use(VueCustomTooltip, {...})` to customize the plugin for your project _(not available with [in-component installation](#in-component-install))_.
+Pass any of the options listed below to `Vue.use(VueCustomTooltip, {...})` to customize the plugin for your project _(not available with [in-component installation](#in-component-install) - see the [CSS Variables section](#css-variables) below)_.
 
 > **A note on options tied to CSS properties**
 >
@@ -337,6 +337,20 @@ Customize the font-weight of the tooltip text. Must be an integer that is a mult
 Vue.use(VueCustomTooltip, {
   fontWeight: 700,
 })
+```
+
+## CSS Variables
+
+In addition to customizing styles via the [Plugin Options](#options), you can alternatively choose to customize styles via CSS variables as shown below:
+
+```css
+/* Default values are shown */
+:root {
+  --vue-custom-tooltip-color: #fff;
+  --vue-custom-tooltip-background: #000;
+  --vue-custom-tooltip-border-radius: 100px;
+  --vue-custom-tooltip-font-weight: 400;
+}
 ```
 
 ## Props
