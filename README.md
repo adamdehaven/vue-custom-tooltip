@@ -63,7 +63,7 @@ Vue.use(VueCustomTooltip, {
 })
 ```
 
-### In-Component (locally available) - **Vue 2.x only**
+### In-Component (locally available)
 
 Alternatively, you may initialize the component directly within a single file in your project.
 
@@ -76,7 +76,10 @@ Alternatively, you may initialize the component directly within a single file in
 
 <script>
   // Import the tooltip component (no options available)
+  // Vue 2.x
   import VueCustomTooltip from '@adamdehaven/vue-custom-tooltip'
+  // Vue 3.x (notice we're importing the actual .vue file)
+  import VueCustomTooltip from '@adamdehaven/vue-custom-tooltip/src/VueCustomTooltip.vue'
 
   // .vue file default export
   export default {
