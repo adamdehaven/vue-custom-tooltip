@@ -69,17 +69,14 @@ Alternatively, you may initialize the component directly within a single file in
 
 **Notes on in-component initialization**:
 
-- Initializing within a component does not allow for customizing the [Plugin Options](#options); however, you may still utilize all [`props`](#props) on the `<VueCustomTooltip>` element.
+- Initializing within a component does not allow for customizing the [Plugin Options](#options); however, you may still utilize all [`props`](#props) on the `<VueCustomTooltip>` element, or customize styles with [CSS Variables](#css-variables).
 
 ```html
 <!-- Single file component -->
 
 <script>
-  // Import the tooltip component (no options available)
-  // Vue 2.x
+  // Import the tooltip component
   import VueCustomTooltip from '@adamdehaven/vue-custom-tooltip'
-  // Vue 3.x (notice we're importing the actual .vue file)
-  import VueCustomTooltip from '@adamdehaven/vue-custom-tooltip/src/VueCustomTooltip.vue'
 
   // .vue file default export
   export default {
@@ -250,7 +247,7 @@ What is
 
 ## Options
 
-Pass any of the options listed below to `Vue.use(VueCustomTooltip, {...})` to customize the plugin for your project _(not available with [in-component installation](#in-component-install))_.
+Pass any of the options listed below to `Vue.use(VueCustomTooltip, {...})` to customize the plugin for your project _(not available with [in-component installation](#in-component-install) - see the [CSS Variables section](#css-variables) below)_.
 
 > **A note on options tied to CSS properties**
 >
@@ -337,6 +334,20 @@ Customize the font-weight of the tooltip text. Must be an integer that is a mult
 Vue.use(VueCustomTooltip, {
   fontWeight: 700,
 })
+```
+
+## CSS Variables
+
+In addition to customizing styles via the [Plugin Options](#options), you can alternatively choose to customize styles via CSS variables as shown below:
+
+```css
+/* Default values are shown */
+:root {
+  --vue-custom-tooltip-color: #fff;
+  --vue-custom-tooltip-background: #000;
+  --vue-custom-tooltip-border-radius: 100px;
+  --vue-custom-tooltip-font-weight: 400;
+}
 ```
 
 ## Props
