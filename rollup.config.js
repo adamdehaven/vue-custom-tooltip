@@ -14,7 +14,8 @@ function createEntry({ file, format, minify }) {
       name: 'VueCustomTooltip',
       file: file,
       format: format,
-      exports: 'default',
+      // exports: 'default',
+      exports: 'named',
       globals: {
         vue: 'Vue',
       },

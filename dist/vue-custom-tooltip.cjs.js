@@ -1,5 +1,7 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 var vue = require('vue');
 
 var defaultTooltipOptions = {
@@ -48,10 +50,12 @@ var script = vue.defineComponent({
             var htmlRoot = document && document.documentElement ? document.documentElement : null;
             if (htmlRoot) {
                 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-                htmlRoot.style.setProperty('--vue-custom-tooltip-color', tooltipOptions.color);
-                htmlRoot.style.setProperty('--vue-custom-tooltip-background', tooltipOptions.background);
-                htmlRoot.style.setProperty('--vue-custom-tooltip-border-radius', ((tooltipOptions.borderRadius) + "px"));
-                htmlRoot.style.setProperty('--vue-custom-tooltip-font-weight', tooltipOptions.fontWeight.toString());
+                htmlRoot.style.setProperty('--vue-custom-tooltip-color', tooltipOptions.color !== defaultTooltipOptions.color ? tooltipOptions.color : null);
+                htmlRoot.style.setProperty('--vue-custom-tooltip-background', tooltipOptions.background !== defaultTooltipOptions.background ? tooltipOptions.background : null);
+                htmlRoot.style.setProperty('--vue-custom-tooltip-border-radius', tooltipOptions.borderRadius !== defaultTooltipOptions.borderRadius
+                    ? ((tooltipOptions.borderRadius) + "px")
+                    : null);
+                htmlRoot.style.setProperty('--vue-custom-tooltip-font-weight', tooltipOptions.fontWeight !== defaultTooltipOptions.fontWeight ? tooltipOptions.fontWeight.toString() : null);
                 /* eslint-enable @typescript-eslint/no-non-null-assertion */
             }
         };
@@ -153,4 +157,5 @@ var index = (function () {
     return installable;
 })();
 
-module.exports = index;
+exports.VueCustomTooltip = script;
+exports.default = index;

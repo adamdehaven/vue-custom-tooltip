@@ -5,3 +5,4 @@ declare type InstallableComponent = typeof VueCustomTooltip & {
 };
 declare const _default: InstallableComponent;
 export default _default;
+export { VueCustomTooltip };

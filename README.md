@@ -69,17 +69,14 @@ Alternatively, you may initialize the component directly within a single file in
 
 **Notes on in-component initialization**:
 
-- Initializing within a component does not allow for customizing the [Plugin Options](#options); however, you may still utilize all [`props`](#props) on the `<VueCustomTooltip>` element.
+- Initializing within a component does not allow for customizing the [Plugin Options](#options); however, you may still utilize all [`props`](#props) on the `<VueCustomTooltip>` element, or customize styles with [CSS Variables](#css-variables).
 
 ```html
 <!-- Single file component -->
 
 <script>
-  // Import the tooltip component (no options available)
-  // Vue 2.x
+  // Import the tooltip component
   import VueCustomTooltip from '@adamdehaven/vue-custom-tooltip'
-  // Vue 3.x (notice we're importing the actual .vue file)
-  import VueCustomTooltip from '@adamdehaven/vue-custom-tooltip/src/VueCustomTooltip.vue'
 
   // .vue file default export
   export default {

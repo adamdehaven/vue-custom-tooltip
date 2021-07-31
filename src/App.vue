@@ -8,8 +8,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+// import { VueCustomTooltip } from './index'
 
 export default defineComponent({
   name: 'App',
+  // components: {
+  //   VueCustomTooltip,
+  // },
 })
 </script>
