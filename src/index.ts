@@ -1,10 +1,16 @@
-import { App } from 'vue'
+import { App, Plugin } from 'vue'
 import VueCustomTooltip from './VueCustomTooltip.vue'
 import { TooltipOptions, defaultTooltipOptions } from './types'
-import './tooltip.scss'
 
-export default {
-  install: (app: App, options?: TooltipOptions): void => {
+// Define typescript interfaces for installable component
+type InstallableComponent = typeof VueCustomTooltip & {
+  install: Exclude<Plugin['install'], undefined>
+}
+
+export default ((): InstallableComponent => {
+  const installable = VueCustomTooltip as unknown as InstallableComponent
+
+  installable.install = (app: App, options?: TooltipOptions): void => {
     const userOptions = Object.assign({}, options)
 
     /**
@@ -47,6 +53,8 @@ export default {
 
     // Register component, using options.name
     /* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */
-    app.component(pluginOptions.name!, VueCustomTooltip)
-  },
-}
+    app.component(pluginOptions.name!, installable)
+  }
+
+  return installable
+})()

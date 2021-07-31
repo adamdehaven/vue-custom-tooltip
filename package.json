@@ -1,6 +1,6 @@
 {
   "name": "@adamdehaven/vue-custom-tooltip",
-  "version": "2.0.4",
+  "version": "2.1.0-beta.5",
   "description": "A customizable, reusable, and reactive tooltip component for Vue 2 & 3 (and VuePress) projects.",
   "keywords": [
     "Vue",
@@ -30,7 +30,8 @@
   "unpkg": "dist/vue-custom-tooltip.min.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist/*",
+    "src/**/*.vue"
   ],
   "peerDependencies": {
     "vue": "^3.0.0"

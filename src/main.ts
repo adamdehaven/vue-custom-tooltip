@@ -8,7 +8,7 @@ const app = createApp(App)
 const tooltipOptions: TooltipOptions = {
   // name: 'VueCustomTooltip',
   // color: '#fff',
-  background: '#007ac1',
+  background: '#ff0000',
   // borderRadius: 12,
   // fontWeight: 400,
 }

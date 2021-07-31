@@ -20,6 +20,13 @@ function createEntry({ file, format, minify }) {
       },
     },
     plugins: [
+      vue({
+        preprocessStyles: true,
+        css: true,
+        template: {
+          optimizeSSR: format === 'cjs',
+        },
+      }),
       postcss({
         extract: false,
         inject: true,
@@ -28,12 +35,6 @@ function createEntry({ file, format, minify }) {
         use: ['sass'],
       }),
       typescript(),
-      vue({
-        css: true,
-        template: {
-          optimizeSSR: format === 'cjs',
-        },
-      }),
       buble(), // Transpile to ES5
     ],
   }
