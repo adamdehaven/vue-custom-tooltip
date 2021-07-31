@@ -63,7 +63,7 @@ Vue.use(VueCustomTooltip, {
 })
 ```
 
-### In-Component (locally available)
+### In-Component (locally available) - **Vue 2.x only**
 
 Alternatively, you may initialize the component directly within a single file in your project.
 
