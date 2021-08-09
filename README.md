@@ -39,12 +39,13 @@ It is recommended to initialize the plugin in your Vue project's entry file. For
 ```js
 // main.{js|ts} (or your Vue entry file)
 
+// ===========================================================
+// VUE 2.x
+// ===========================================================
 // Import Vue... you're probably already doing this
 import Vue from 'vue'
-
 // Import the tooltip component before calling 'new Vue()'
 import VueCustomTooltip from '@adamdehaven/vue-custom-tooltip'
-
 // Install the plugin using ONE of the options below:
 // --------------------------------------------------
 
@@ -61,6 +62,34 @@ Vue.use(VueCustomTooltip, {
   borderRadius: 100,
   fontWeight: 400,
 })
+
+// ===========================================================
+// VUE 3.x
+// ===========================================================
+import { createApp } from 'vue'
+import App from './App.vue'
+import VueCustomTooltip, { TooltipOptions } from '@adamdehaven/vue-custom-tooltip'
+const app = createApp(App)
+
+// Install the plugin using ONE of the options below:
+// --------------------------------------------------
+
+// 1. Install with default options
+app.use(VueCustomTooltip)
+
+// ===== OR  =====
+
+// 2. Install with custom options (defaults shown)
+const opt: TooltipOptions = {
+  name: 'VueCustomTooltip',
+  color: '#fff',
+  background: '#000',
+  borderRadius: 100,
+  fontWeight: 400,
+}
+
+app.use(VueCustomTooltip, opt)
+app.mount('#app')
 ```
 
 ### In-Component (locally available)
