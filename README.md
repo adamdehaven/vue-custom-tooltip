@@ -44,17 +44,19 @@ It is recommended to initialize the plugin in your Vue project's entry file. For
 // ===========================================================
 // Import Vue... you're probably already doing this
 import Vue from 'vue'
-// Import the tooltip component before calling 'new Vue()'
+
+// Import the tooltip component
 import VueCustomTooltip from '@adamdehaven/vue-custom-tooltip'
-// Install the plugin using ONE of the options below:
+
+// Initialize the plugin using ONE of the options below:
 // --------------------------------------------------
 
-// 1. Install with default options
+// 1. Initialize with default options
 Vue.use(VueCustomTooltip)
 
 // ===== OR  =====
 
-// 2. Install with custom options (defaults shown)
+// 2. Initialize with custom options (defaults shown)
 Vue.use(VueCustomTooltip, {
   name: 'VueCustomTooltip',
   color: '#fff',
@@ -68,18 +70,21 @@ Vue.use(VueCustomTooltip, {
 // ===========================================================
 import { createApp } from 'vue'
 import App from './App.vue'
+
+// Import the tooltip component and option types
 import VueCustomTooltip, { TooltipOptions } from '@adamdehaven/vue-custom-tooltip'
+
 const app = createApp(App)
 
-// Install the plugin using ONE of the options below:
+// Initialize the plugin using ONE of the options below:
 // --------------------------------------------------
 
-// 1. Install with default options
+// 1. Initialize with default options
 app.use(VueCustomTooltip)
 
-// ===== OR  =====
+// ===== OR  ===
 
-// 2. Install with custom options (defaults shown)
+// 2. Initialize with custom options (defaults shown)
 const opt: TooltipOptions = {
   name: 'VueCustomTooltip',
   color: '#fff',
