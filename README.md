@@ -36,7 +36,7 @@ yarn add @adamdehaven/vue-custom-tooltip@next
 
 It is recommended to initialize the plugin in your Vue project's entry file. For projects created with [`@vue/cli`](https://cli.vuejs.org/), this is likely your `main.{js|ts}` file where you are already importing `Vue`.
 
-```js
+```ts
 // main.{js|ts} (or your Vue entry file)
 
 // ===========================================================
