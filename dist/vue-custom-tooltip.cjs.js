@@ -64,8 +64,9 @@ var script = vue.defineComponent({
         };
         vue.onMounted(setCssVars);
         return function () { return [
-            vue.h(props.abbreviation ? 'abbr' : 'span', Object.assign({}, attrs, {
+            vue.h(props.abbreviation ? 'abbr' : 'span', {
                 'class': [
+                    attrs.class,
                     props.position,
                     // force at least medium size if multiline is true
                     props.multiline && props.size === 'is-small' ? 'is-medium' : props.size,
@@ -78,8 +79,8 @@ var script = vue.defineComponent({
                 'data-label': props.label,
                 'aria-label': props.label,
                 'role': 'tooltip',
-                'style': [{ cursor: props.abbreviation ? 'help' : 'pointer' }],
-            }), slots) ]; };
+                'style': [{ cursor: props.abbreviation ? 'help' : 'pointer' }, attrs.style],
+            }, slots) ]; };
     },
 });
 

@@ -2,7 +2,9 @@
   <p>This is the Vue app.</p>
   <p>
     This sentence has a
-    <vue-custom-tooltip label="This is a tooltip" abbreviation>tooltip in the middle</vue-custom-tooltip>.
+    <vue-custom-tooltip class="adam-test" label="This is a tooltip" abbreviation
+      >tooltip in the middle</vue-custom-tooltip
+    >.
   </p>
 </template>
 
