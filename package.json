@@ -1,6 +1,6 @@
 {
   "name": "@adamdehaven/vue-custom-tooltip",
-  "version": "2.5.1",
+  "version": "2.6.0",
   "description": "A customizable, reusable, and reactive tooltip component for Vue 3 (including TypeScript) projects.",
   "keywords": [
     "Vue",
@@ -42,17 +42,17 @@
   },
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
-    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-commonjs": "^21.0.0",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.11",
+    "@vue/compiler-sfc": "^3.2.19",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
-    "del-cli": "^3.0.1",
+    "del-cli": "^4.0.1",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.0.0",
@@ -65,8 +65,8 @@
     "rollup-plugin-vue": "^6.0.0-beta.10",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "typescript": "~4.1.5",
-    "vue": "^3.0.11"
+    "typescript": "^4.4.3",
+    "vue": "^3.2.19"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
